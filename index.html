@@ -1,0 +1,71 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <link rel="stylesheet" type="text/css" href="css1美化.css" /> 
+    </head> 
+<body> 
+    <nav class="site-nav"> <!-- 导航条容器 -->
+        <ul>
+            <li><a href="#s1" class="active">1</a></li> 
+            <li><a href="#s2">2</a></li> 
+            <li><a href="#s3">3</a></li> 
+            <li><a href="#s4">4</a></li> 
+        </ul>
+    </nav> 
+    <main> 
+        <section id="s1" class="page-section"> <!-- 第一屏（首页） -->
+            <h1>我的新首页标题</h1> <!-- 页面主标题 -->
+            <img src="第一次图片1"  width="300" height="200" /> <!-- 示例图片（记得放到 images 文件夹） -->
+            <video src="video.mp4" controls width="300" height="200"></video> <!-- 示例视频 -->
+            <p>这是更新后的第一屏内容，放介绍与按钮等。</p> <!-- 简短介绍文字 -->
+                     </section> <!-- 第一屏结束 -->
+
+        <section id="s2" class="page-section hidden"> <!-- 第二屏（关于）默认隐藏 -->
+            <h2>关于我们</h2> <!-- 二级标题：关于我们 -->
+            <img src="images/about.jpg" alt="关于图" width="400" height="240" /> <!-- 关于页面图片 -->
+            <p>这里是关于页面的介绍文字，阐述团队、使命和背景。</p> <!-- 关于文本说明 -->
+            <ul> <!-- 列表开始，列出要点 -->
+                <li>成立时间：2025年</li> <!-- 列表项：成立时间 -->
+                <li>团队：前端、设计、产品</li> <!-- 列表项：团队构成 -->
+                <li>愿景：做出更好的网页体验</li> <!-- 列表项：愿景 -->
+            </ul> <!-- 列表结束 -->
+        </section> <!-- 第二屏结束 -->
+
+        <section id="s3" class="page-section hidden"> <!-- 第三屏（作品）默认隐藏 -->
+            <h2>作品展示</h2> <!-- 二级标题：作品 -->
+            <div class="gallery"> <!-- 作品画廊容器 -->
+                <figure><img src="images/work1.jpg" alt="作品1" width="200"><figcaption>作品 1 简介</figcaption></figure> <!-- 单个作品展示 -->
+                <figure><img src="images/work2.jpg" alt="作品2" width="200"><figcaption>作品 2 简介</figcaption></figure> <!-- 单个作品展示 -->
+            </div> <!-- 画廊结束 -->
+            <p>更多作品请点击下方链接查看完整集锦。</p> <!-- 说明文字 -->
+            <p><a href="http://example.com/works">查看全部作品</a></p> <!-- 链接到作品页 -->
+        </section> <!-- 第三屏结束 -->
+
+        <section id="s4" class="page-section hidden"> <!-- 第四屏（联系）默认隐藏 -->
+            <h2>联系我们</h2> <!-- 联系标题 -->
+            <p>邮箱：contact@example.com</p> <!-- 邮箱信息 -->
+            <p>电话：+86 10 1234 5678</p> <!-- 电话信息 -->
+            <form action="#" method="post"> <!-- 联系表单（示例） -->
+                <label>姓名：<input type="text" name="name"></label><br> <!-- 输入姓名 -->
+                <label>留言：<textarea name="message"></textarea></label><br> <!-- 留言文本框 -->
+                <button type="submit">发送</button> <!-- 提交按钮 -->
+            </form> <!-- 表单结束 -->
+        </section> <!-- 第四屏结束 -->
+    </main> <!-- 主内容结束 -->
+    
+    <script> <!-- 脚本开始：处理导航点击切换 -->
+    // 点击导航依次切换对应 section（使用 href 的 #id）
+    document.querySelectorAll('.site-nav a').forEach(function(link){ // 选中所有导航链接并遍历
+        link.addEventListener('click', function(e){ // 为每个链接添加点击事件
+            e.preventDefault(); // 阻止默认的锚点跳转行为
+            document.querySelectorAll('.site-nav a').forEach(function(a){ a.classList.remove('active'); }); // 移除所有链接的 active 类
+            this.classList.add('active'); // 为当前点击的链接添加 active 类
+            var id = this.getAttribute('href').slice(1); // 取 href 的 # 后面部分作为 id
+            document.querySelectorAll('.page-section').forEach(function(sec){ // 遍历所有页面区块
+                sec.classList.toggle('hidden', sec.id !== id); // 如果 id 不匹配则隐藏该区块
+            });
+        });
+    });
+    </script> <!-- 脚本结束 -->
+</body> <!-- body 结束 -->
+</html> <!-- html 结束 -->
