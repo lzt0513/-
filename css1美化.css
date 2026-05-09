@@ -1,35 +1,14 @@
-:root{
-    /* 背景图片与遮罩透明度变量，修改这里即可调整全页/页脚背景 */
-    --page-bg-image: url('背景.png');
-    --page-bg-overlay: 0.84; /* 全页背景的暗色遮罩透明度（0~1），控制视觉深浅 */
+/* 仅保留导航样式，其他规则已移除按要求保留关于导航条的位置与格式 */
+.site-nav{position:relative;z-index:4;width:100%;background:linear-gradient(90deg, rgb(159, 193, 193), rgba(42, 103, 103, 0.95));padding:12px 0;box-shadow:0 2px 6px rgba(0,0,0,0.25);} /* 导航容器：固定宽度、背景渐变与阴影 */
+.site-nav ul{list-style:none;margin:0;padding:0 20px;display:flex;gap:28px;align-items:center;justify-content:flex-start;max-width:1100px;} /* 导航列表布局：水平排列、间距 */
+.site-nav li{display:inline-block} /* 列表项为行内块 */
+.site-nav a{color:#fff;text-decoration:none;font-weight:600;padding:12px 14px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;min-height:44px} /* 链接样式：增大触控区域 */
+.site-nav a:hover{background:rgba(255,255,255,0.06);color:#bfa8ab} /* 悬停样式 */
+
+.site-nav a{font-size:15px}
+@media (max-width:600px){
+	.site-nav ul{flex-direction:column;gap:10px;padding:8px 12px;max-width:100%;}
+	.site-nav a{padding:14px 16px;font-size:17px} /* 窄屏时增加点击区域与字体 */
 }
 
-html{background-color:hwb(0 93% 7%);} /* 深色后备背景，避免图片半透明时透出白色 */
-body{min-height:100%;margin:0;padding:0;background:transparent;color:#fff;font-family:"Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;} /* 基本文字与重置 */
-
-/* 导航样式 */
-.site-nav{position:relative;z-index:4;width:100%;background:linear-gradient(90deg, rgb(159, 193, 193), rgba(42, 103, 103, 0.95));padding:12px 0;box-shadow:0 2px 6px rgba(0,0,0,0.25);} 
-.site-nav ul{list-style:none;margin:0;padding:0 20px;display:flex;gap:28px;align-items:center;justify-content:flex-start;max-width:1100px;} 
-.site-nav li{display:inline-block}
-.site-nav a{color:#fff;text-decoration:none;font-weight:600;padding:8px 10px;border-radius:4px}
-.site-nav a:hover{background:rgba(255,255,255,0.06);color:#bfa8ab}
-
-@media (max-width:600px){.site-nav ul{flex-direction:column;gap:10px;padding:8px 12px;max-width:100%;}}
-
-/* 页面内容与切换 */
-.page-section{position:relative;z-index:0;padding:24px 20px;min-height:300px}
-.hidden{display:none}
-.site-nav a.active{background:rgba(255,255,255,0.08)}
-
-/* 全页背景：使用 body::before 铺满视口并可调整透明度；z-index 2，覆盖内容但低于导航 */
-/* 使用线性遮罩叠加在图片之上（替代直接 opacity），避免与页面白色背景混合 */
-body::before{content:"";position:fixed;inset:0;background:
-    linear-gradient(rgba(0,0,0,var(--page-bg-overlay)), rgba(0,0,0,var(--page-bg-overlay))),
-    var(--page-bg-image) center/cover no-repeat;z-index:2;pointer-events:none}
-
-/* 页脚：伪元素单独背景（通常位于内容下方，但全页背景会覆盖它） */
-.site-footer{position:relative;overflow:hidden;color:#fff;padding:40px 20px;text-align:center}
-.site-footer::before{content:"";position:absolute;inset:0;background-image:var(--footer-bg-image);background-size:cover;background-position:center;background-repeat:no-repeat;opacity:var(--footer-bg-opacity);z-index:1;pointer-events:none}
-.site-footer .footer-inner{position:relative;z-index:0}
-
-h1{color:aqua}
+.site-nav a.active{background:rgba(255,255,255,0.08)} /* 活动项高亮 */

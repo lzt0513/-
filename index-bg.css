@@ -1,0 +1,18 @@
+:root{
+    /* 主页面专用背景图片与遮罩透明度变量（仅在 index.html 生效） */
+    --page-bg-image: url('背景.png');
+    --page-bg-overlay: 0.84; /* 遮罩透明度（0~1） */
+}
+
+html{background-color:hwb(0 93% 7%);} /* 后备深色背景 */
+body{min-height:100%;margin:0;padding:0;background:transparent;color:inherit;} /* 基本重置 */
+
+/* 全页背景：使用 body::before 铺满视口并可调整透明度；z-index:2 低于导航 */
+body::before{content:"";position:fixed;inset:0;background:
+        linear-gradient(rgba(0,0,0,var(--page-bg-overlay)), rgba(0,0,0,var(--page-bg-overlay))),
+        var(--page-bg-image) center/cover no-repeat;z-index:2;pointer-events:none}
+
+/* 移动端优化：在窄屏设备禁用固定背景以提升性能与兼容性 */
+@media (max-width:600px){
+    body::before{background:none;display:none}
+}

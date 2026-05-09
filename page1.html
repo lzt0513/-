@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>页面1 — 视频</title>
+    <link rel="stylesheet" href="css1美化.css" />
+    <style>
+      body{margin:0;font-family:Segoe UI,Arial,Helvetica,sans-serif}
+      .wrap{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;box-sizing:border-box}
+      video{width:100%;max-width:720px;max-height:calc(100vh - 120px);height:auto;border-radius:6px;background:#000;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+      .actions{margin-top:16px}
+      a.button{display:inline-block;padding:8px 14px;background:#1976d2;color:#fff;border-radius:6px;text-decoration:none}
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>画面 1 — 视频展示</h1>
+      <video controls preload="metadata" playsinline>
+        <source src="video.mp4" type="video/mp4">
+        你的浏览器不支持 video 标签。
+      </video>
+      <div class="actions"><a class="button" href="index.html">返回首页</a></div>
+    </div>
+  </body>
+</html>

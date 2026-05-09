@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>页面2 — 图片展示</title>
+		<link rel="stylesheet" href="css1美化.css">
+		<style>
+			body{margin:0;font-family:Segoe UI,Arial,Helvetica,sans-serif}
+			.wrap{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;box-sizing:border-box}
+			.photo{max-width:900px;width:80%;height:auto;border-radius:6px;box-shadow:0 6px 20px rgba(0,0,0,.12)}
+			.caption{margin-top:12px;color:#444}
+			a.button{display:inline-block;margin-top:16px;padding:8px 14px;background:#1976d2;color:#fff;border-radius:6px;text-decoration:none}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<h1>画面 2 — 图片展示</h1>
+			<img class="photo" src="images/photo.jpg" alt="示例图片（请将 images/photo.jpg 放到相对目录）" loading="lazy"
+				srcset="images/photo-480.jpg 480w, images/photo-800.jpg 800w, images/photo.jpg 1200w"
+				sizes="(max-width:600px) 90vw, 800px">
+			<div class="caption">图片说明：示例图片，宽度自适应。</div>
+			<a class="button" href="index.html">返回首页</a>
+		</div>
+	</body>
+</html>
