@@ -1,6 +1,6 @@
 /* 仅保留导航样式，其他规则已移除按要求保留关于导航条的位置与格式 */
 .site-nav{position:relative;z-index:4;width:100%;background:linear-gradient(90deg, rgb(159, 193, 193), rgba(42, 103, 103, 0.95));padding:12px 0;box-shadow:0 2px 6px rgba(0,0,0,0.25);} /* 导航容器：固定宽度、背景渐变与阴影 */
-.site-nav ul{list-style:none;margin:0;padding:0 20px;display:flex;gap:28px;align-items:center;justify-content:flex-start;max-width:1100px;} /* 导航列表布局：水平排列、间距 */
+.site-nav ul{list-style:none;margin:0;padding:0 20px;display:flex;gap:20px;align-items:center;justify-content:center;max-width:1100px;} /* 导航列表布局：水平居中排列、间距适中 */
 .site-nav li{display:inline-block} /* 列表项为行内块 */
 .site-nav a{color:#fff;text-decoration:none;font-weight:600;padding:12px 14px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;min-height:44px} /* 链接样式：增大触控区域 */
 .site-nav a:hover{background:rgba(255,255,255,0.06);color:#bfa8ab} /* 悬停样式 */
@@ -12,3 +12,11 @@
 }
 
 .site-nav a.active{background:rgba(255,255,255,0.08)} /* 活动项高亮 */
+
+/* page1 专用背景：只在包含 .page1 的页面生效 */
+.page1{background:#000 !important; color:#fff}
+.page1::before{display:none} /* 防止其他伪元素干扰 */
+.page2{background:#000 !important; color:#fff}
+.page2::before{display:none} /* 防止其他伪元素干扰 */
+.page3{background:#000 !important; color:#fff}
+.page3::before{display:none} /* 防止其他伪元素干扰 */
